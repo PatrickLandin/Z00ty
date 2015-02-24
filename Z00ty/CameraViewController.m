@@ -1,0 +1,61 @@
+//
+//  CameraViewController.m
+//  Zooty
+//
+//  Created by Patrick Landin on 2/23/15.
+//  Copyright (c) 2015 pLandin. All rights reserved.
+//
+
+#import "CameraViewController.h"
+#import <UIKit/UIKit.h>
+
+@interface CameraViewController () <UITabBarControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@end
+
+@implementation CameraViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+  
+  if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion: NULL];
+    
+  } else {
+    NSLog(@"No camera in da simulator");
+  }
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+  
+  self.tabBarController.delegate = self;
+  
+    // Do any additional setup after loading the view.
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+  
+  UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+  // Send this image somewhere
+  
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+  
+  [picker dismissViewControllerAnimated:YES completion:NULL];
+  [self.tabBarController setSelectedIndex:0];
+  
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+@end
