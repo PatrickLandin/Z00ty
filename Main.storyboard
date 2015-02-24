@@ -131,17 +131,6 @@
                                 <rect key="frame" x="100" y="80" width="400" height="300"/>
                                 <color key="backgroundColor" red="0.015644440110000001" green="0.7735953283" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-Us-aZB">
-                                <rect key="frame" x="39" y="415" width="336" height="40"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="No way!">
-                                    <color key="titleColor" red="0.78039215689999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="noButton:" destination="bBl-Nf-TzI" eventType="touchUpInside" id="D0w-8w-S1V"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzi-L6-BOn">
                                 <rect key="frame" x="375" y="415" width="50" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
@@ -153,17 +142,28 @@
                                     <action selector="yesButton:" destination="bBl-Nf-TzI" eventType="touchUpInside" id="sbS-Tr-UEa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-Us-aZB">
+                                <rect key="frame" x="65" y="415" width="261" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="No way!">
+                                    <color key="titleColor" red="0.78039215689999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noButton:" destination="bBl-Nf-TzI" eventType="touchUpInside" id="D0w-8w-S1V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bzi-L6-BOn" firstAttribute="leading" secondItem="c3p-Us-aZB" secondAttribute="trailing" id="ImV-Tz-iOF"/>
+                            <constraint firstItem="bzi-L6-BOn" firstAttribute="leading" secondItem="c3p-Us-aZB" secondAttribute="trailing" multiplier="1.15" id="ImV-Tz-iOF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wi0-wd-tHb" secondAttribute="trailing" constant="96" id="Lq1-4O-t8a"/>
                             <constraint firstItem="Wi0-wd-tHb" firstAttribute="leading" secondItem="DFD-Rp-Sfe" secondAttribute="leadingMargin" constant="96" id="MOz-in-PFi"/>
                             <constraint firstItem="bzi-L6-BOn" firstAttribute="top" secondItem="Wi0-wd-tHb" secondAttribute="bottom" constant="35" id="Rlt-LC-IRK"/>
                             <constraint firstItem="Wi0-wd-tHb" firstAttribute="height" secondItem="DFD-Rp-Sfe" secondAttribute="height" multiplier="0.5" id="aDE-gX-rRW"/>
                             <constraint firstItem="Wi0-wd-tHb" firstAttribute="top" secondItem="eeu-MC-z5B" secondAttribute="bottom" multiplier="4" id="ebc-6q-C7W"/>
                             <constraint firstAttribute="centerX" secondItem="bzi-L6-BOn" secondAttribute="centerX" multiplier="0.75" id="f7A-Bp-rkD"/>
-                            <constraint firstAttribute="centerX" secondItem="c3p-Us-aZB" secondAttribute="centerX" multiplier="1.45" id="fQH-Qh-iDp"/>
+                            <constraint firstAttribute="centerX" secondItem="c3p-Us-aZB" secondAttribute="centerX" multiplier="1.45" constant="16.525000000000034" id="fQH-Qh-iDp"/>
                             <constraint firstItem="Wi0-wd-tHb" firstAttribute="width" secondItem="DFD-Rp-Sfe" secondAttribute="width" multiplier="0.666" id="gC5-Xs-rmx"/>
                             <constraint firstItem="c3p-Us-aZB" firstAttribute="top" secondItem="Wi0-wd-tHb" secondAttribute="bottom" constant="35" id="hAP-9w-dBX"/>
                             <constraint firstAttribute="centerX" secondItem="Wi0-wd-tHb" secondAttribute="centerX" id="jic-kb-BuD"/>
