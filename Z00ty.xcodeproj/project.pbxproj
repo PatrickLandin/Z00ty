@@ -17,6 +17,8 @@
 		EC3760AB1A9D1C71001324DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3760AA1A9D1C71001324DC /* Images.xcassets */; };
 		EC3760AE1A9D1C71001324DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3760AC1A9D1C71001324DC /* LaunchScreen.xib */; };
 		EC3760BA1A9D1C71001324DC /* Z00tyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760B91A9D1C71001324DC /* Z00tyTests.m */; };
+		EC3760C91A9D229D001324DC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760C81A9D229D001324DC /* CameraViewController.m */; };
+		EC3760CC1A9D22A8001324DC /* ImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760CB1A9D22A8001324DC /* ImageService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,10 @@
 		EC3760B31A9D1C71001324DC /* Z00tyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Z00tyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3760B81A9D1C71001324DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC3760B91A9D1C71001324DC /* Z00tyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Z00tyTests.m; sourceTree = "<group>"; };
+		EC3760C71A9D229D001324DC /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		EC3760C81A9D229D001324DC /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		EC3760CA1A9D22A8001324DC /* ImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageService.h; sourceTree = "<group>"; };
+		EC3760CB1A9D22A8001324DC /* ImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,10 @@
 				EC37609F1A9D1C71001324DC /* AppDelegate.m */,
 				328243721A9D21F4002B40C9 /* ImageViewController.h */,
 				328243731A9D21F4002B40C9 /* ImageViewController.m */,
+				EC3760C71A9D229D001324DC /* CameraViewController.h */,
+				EC3760C81A9D229D001324DC /* CameraViewController.m */,
+				EC3760CA1A9D22A8001324DC /* ImageService.h */,
+				EC3760CB1A9D22A8001324DC /* ImageService.m */,
 				EC3760A41A9D1C71001324DC /* ViewController.h */,
 				EC3760A51A9D1C71001324DC /* ViewController.m */,
 				EC3760AA1A9D1C71001324DC /* Images.xcassets */,
@@ -233,7 +243,9 @@
 			files = (
 				328243741A9D21F4002B40C9 /* ImageViewController.m in Sources */,
 				EC3760A31A9D1C71001324DC /* Z00ty.xcdatamodeld in Sources */,
+				EC3760CC1A9D22A8001324DC /* ImageService.m in Sources */,
 				EC3760A01A9D1C71001324DC /* AppDelegate.m in Sources */,
+				EC3760C91A9D229D001324DC /* CameraViewController.m in Sources */,
 				EC3760A61A9D1C71001324DC /* ViewController.m in Sources */,
 				EC37609D1A9D1C71001324DC /* main.m in Sources */,
 			);
