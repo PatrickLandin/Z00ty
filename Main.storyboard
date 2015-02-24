@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wFT-Ej-iBC">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Item 2-->
+        <scene sceneID="rcO-dg-ufQ">
+            <objects>
+                <viewController id="6U7-cd-Oju" customClass="TableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kfr-HF-f6I"/>
+                        <viewControllerLayoutGuide type="bottom" id="27u-O8-c1p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3qj-Dg-0AR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hMm-lL-N0X">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3Vl-jv-gJp">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Vl-jv-gJp" id="kJ6-Hk-98N">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="4R0-SX-jRo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eLf-98-rDl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="714"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="WM2-Lc-kP7">
+            <objects>
+                <viewController id="bBl-Nf-TzI" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eeu-MC-z5B"/>
+                        <viewControllerLayoutGuide type="bottom" id="O20-Oh-1IW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DFD-Rp-Sfe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="awesomeTest.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wi0-wd-tHb">
+                                <rect key="frame" x="100" y="80" width="400" height="300"/>
+                                <color key="backgroundColor" red="0.015644440110000001" green="0.7735953283" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-Us-aZB">
+                                <rect key="frame" x="39" y="415" width="336" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="No way!">
+                                    <color key="titleColor" red="0.78039215689999997" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noButton:" destination="bBl-Nf-TzI" eventType="touchUpInside" id="D0w-8w-S1V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzi-L6-BOn">
+                                <rect key="frame" x="375" y="415" width="50" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="Totes">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="yesButton:" destination="bBl-Nf-TzI" eventType="touchUpInside" id="sbS-Tr-UEa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bzi-L6-BOn" firstAttribute="leading" secondItem="c3p-Us-aZB" secondAttribute="trailing" id="ImV-Tz-iOF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wi0-wd-tHb" secondAttribute="trailing" constant="96" id="Lq1-4O-t8a"/>
+                            <constraint firstItem="Wi0-wd-tHb" firstAttribute="leading" secondItem="DFD-Rp-Sfe" secondAttribute="leadingMargin" constant="96" id="MOz-in-PFi"/>
+                            <constraint firstItem="bzi-L6-BOn" firstAttribute="top" secondItem="Wi0-wd-tHb" secondAttribute="bottom" constant="35" id="Rlt-LC-IRK"/>
+                            <constraint firstItem="Wi0-wd-tHb" firstAttribute="height" secondItem="DFD-Rp-Sfe" secondAttribute="height" multiplier="0.5" id="aDE-gX-rRW"/>
+                            <constraint firstItem="Wi0-wd-tHb" firstAttribute="top" secondItem="eeu-MC-z5B" secondAttribute="bottom" multiplier="4" id="ebc-6q-C7W"/>
+                            <constraint firstAttribute="centerX" secondItem="bzi-L6-BOn" secondAttribute="centerX" multiplier="0.75" id="f7A-Bp-rkD"/>
+                            <constraint firstAttribute="centerX" secondItem="c3p-Us-aZB" secondAttribute="centerX" multiplier="1.45" id="fQH-Qh-iDp"/>
+                            <constraint firstItem="Wi0-wd-tHb" firstAttribute="width" secondItem="DFD-Rp-Sfe" secondAttribute="width" multiplier="0.666" id="gC5-Xs-rmx"/>
+                            <constraint firstItem="c3p-Us-aZB" firstAttribute="top" secondItem="Wi0-wd-tHb" secondAttribute="bottom" constant="35" id="hAP-9w-dBX"/>
+                            <constraint firstAttribute="centerX" secondItem="Wi0-wd-tHb" secondAttribute="centerX" id="jic-kb-BuD"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Lq1-4O-t8a"/>
+                                <exclude reference="MOz-in-PFi"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="IQo-et-JXT"/>
+                    <connections>
+                        <outlet property="imageView" destination="Wi0-wd-tHb" id="oBK-1H-j3h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ss3-S9-uLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="52"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="prg-Io-r6g">
+            <objects>
+                <tabBarController id="wFT-Ej-iBC" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ai5-9V-QSb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bBl-Nf-TzI" kind="relationship" relationship="viewControllers" id="q4h-UN-6zx"/>
+                        <segue destination="6U7-cd-Oju" kind="relationship" relationship="viewControllers" id="Z6d-KH-kvX"/>
+                        <segue destination="BXX-h8-gOm" kind="relationship" relationship="viewControllers" id="O86-YE-wrV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r3V-CK-Xui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8" y="383"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="9Ql-Io-LmJ">
+            <objects>
+                <viewController id="BXX-h8-gOm" customClass="CameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f6Z-DJ-q8a"/>
+                        <viewControllerLayoutGuide type="bottom" id="sZh-Nc-xpX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uGe-Qr-X6D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="sc0-TN-KPc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y2H-CZ-7E4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="1132"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="awesomeTest.png" width="479" height="720"/>
+    </resources>
+</document>

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		328243711A9D207B002B40C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 328243701A9D207B002B40C9 /* Main.storyboard */; };
 		EC37609D1A9D1C71001324DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37609C1A9D1C71001324DC /* main.m */; };
 		EC3760A01A9D1C71001324DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37609F1A9D1C71001324DC /* AppDelegate.m */; };
 		EC3760A31A9D1C71001324DC /* Z00ty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC3760A11A9D1C71001324DC /* Z00ty.xcdatamodeld */; };
 		EC3760A61A9D1C71001324DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760A51A9D1C71001324DC /* ViewController.m */; };
-		EC3760A91A9D1C71001324DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3760A71A9D1C71001324DC /* Main.storyboard */; };
 		EC3760AB1A9D1C71001324DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3760AA1A9D1C71001324DC /* Images.xcassets */; };
 		EC3760AE1A9D1C71001324DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3760AC1A9D1C71001324DC /* LaunchScreen.xib */; };
 		EC3760BA1A9D1C71001324DC /* Z00tyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760B91A9D1C71001324DC /* Z00tyTests.m */; };
@@ -28,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		328243701A9D207B002B40C9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EC3760971A9D1C71001324DC /* Z00ty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Z00ty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC37609B1A9D1C71001324DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC37609C1A9D1C71001324DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		EC3760A21A9D1C71001324DC /* Z00ty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Z00ty.xcdatamodel; sourceTree = "<group>"; };
 		EC3760A41A9D1C71001324DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EC3760A51A9D1C71001324DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EC3760A81A9D1C71001324DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC3760AA1A9D1C71001324DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EC3760AD1A9D1C71001324DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EC3760B31A9D1C71001324DC /* Z00tyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Z00tyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +65,7 @@
 		EC37608E1A9D1C71001324DC = {
 			isa = PBXGroup;
 			children = (
+				328243701A9D207B002B40C9 /* Main.storyboard */,
 				EC3760991A9D1C71001324DC /* Z00ty */,
 				EC3760B61A9D1C71001324DC /* Z00tyTests */,
 				EC3760981A9D1C71001324DC /* Products */,
@@ -87,7 +88,6 @@
 				EC37609F1A9D1C71001324DC /* AppDelegate.m */,
 				EC3760A41A9D1C71001324DC /* ViewController.h */,
 				EC3760A51A9D1C71001324DC /* ViewController.m */,
-				EC3760A71A9D1C71001324DC /* Main.storyboard */,
 				EC3760AA1A9D1C71001324DC /* Images.xcassets */,
 				EC3760AC1A9D1C71001324DC /* LaunchScreen.xib */,
 				EC3760A11A9D1C71001324DC /* Z00ty.xcdatamodeld */,
@@ -202,7 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC3760A91A9D1C71001324DC /* Main.storyboard in Resources */,
+				328243711A9D207B002B40C9 /* Main.storyboard in Resources */,
 				EC3760AE1A9D1C71001324DC /* LaunchScreen.xib in Resources */,
 				EC3760AB1A9D1C71001324DC /* Images.xcassets in Resources */,
 			);
@@ -248,14 +248,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EC3760A71A9D1C71001324DC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC3760A81A9D1C71001324DC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EC3760AC1A9D1C71001324DC /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -418,6 +410,7 @@
 				EC3760BF1A9D1C71001324DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC3760C01A9D1C71001324DC /* Build configuration list for PBXNativeTarget "Z00tyTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +419,7 @@
 				EC3760C21A9D1C71001324DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
