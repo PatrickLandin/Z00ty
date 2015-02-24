@@ -10,6 +10,9 @@
 		328243711A9D207B002B40C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 328243701A9D207B002B40C9 /* Main.storyboard */; };
 		328243741A9D21F4002B40C9 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 328243731A9D21F4002B40C9 /* ImageViewController.m */; };
 		328243761A9D2239002B40C9 /* awesomeTest.png in Resources */ = {isa = PBXBuildFile; fileRef = 328243751A9D2239002B40C9 /* awesomeTest.png */; };
+		C0D390D61A9D2468000075B6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390D51A9D2468000075B6 /* TableViewController.swift */; };
+		C0D390D81A9D2499000075B6 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390D71A9D2499000075B6 /* DummyData.swift */; };
+		C0D390DA1A9D24A2000075B6 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390D91A9D24A2000075B6 /* StatsTableViewCell.swift */; };
 		EC37609D1A9D1C71001324DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37609C1A9D1C71001324DC /* main.m */; };
 		EC3760A01A9D1C71001324DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37609F1A9D1C71001324DC /* AppDelegate.m */; };
 		EC3760A31A9D1C71001324DC /* Z00ty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC3760A11A9D1C71001324DC /* Z00ty.xcdatamodeld */; };
@@ -36,6 +39,10 @@
 		328243721A9D21F4002B40C9 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		328243731A9D21F4002B40C9 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		328243751A9D2239002B40C9 /* awesomeTest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeTest.png; sourceTree = "<group>"; };
+		C0D390D41A9D2468000075B6 /* Z00ty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Z00ty-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0D390D51A9D2468000075B6 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C0D390D71A9D2499000075B6 /* DummyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		C0D390D91A9D24A2000075B6 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		EC3760971A9D1C71001324DC /* Z00ty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Z00ty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC37609B1A9D1C71001324DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC37609C1A9D1C71001324DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,11 +112,15 @@
 				EC3760CB1A9D22A8001324DC /* ImageService.m */,
 				EC3760A41A9D1C71001324DC /* ViewController.h */,
 				EC3760A51A9D1C71001324DC /* ViewController.m */,
+				C0D390D51A9D2468000075B6 /* TableViewController.swift */,
+				C0D390D91A9D24A2000075B6 /* StatsTableViewCell.swift */,
+				C0D390D71A9D2499000075B6 /* DummyData.swift */,
 				EC3760AA1A9D1C71001324DC /* Images.xcassets */,
 				328243751A9D2239002B40C9 /* awesomeTest.png */,
 				EC3760AC1A9D1C71001324DC /* LaunchScreen.xib */,
 				EC3760A11A9D1C71001324DC /* Z00ty.xcdatamodeld */,
 				EC37609A1A9D1C71001324DC /* Supporting Files */,
+				C0D390D41A9D2468000075B6 /* Z00ty-Bridging-Header.h */,
 			);
 			path = Z00ty;
 			sourceTree = "<group>";
@@ -242,8 +253,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				328243741A9D21F4002B40C9 /* ImageViewController.m in Sources */,
+				C0D390DA1A9D24A2000075B6 /* StatsTableViewCell.swift in Sources */,
 				EC3760A31A9D1C71001324DC /* Z00ty.xcdatamodeld in Sources */,
 				EC3760CC1A9D22A8001324DC /* ImageService.m in Sources */,
+				C0D390D81A9D2499000075B6 /* DummyData.swift in Sources */,
+				C0D390D61A9D2468000075B6 /* TableViewController.swift in Sources */,
 				EC3760A01A9D1C71001324DC /* AppDelegate.m in Sources */,
 				EC3760C91A9D229D001324DC /* CameraViewController.m in Sources */,
 				EC3760A61A9D1C71001324DC /* ViewController.m in Sources */,
@@ -363,9 +377,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Z00ty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Z00ty/Z00ty-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -373,9 +390,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Z00ty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Z00ty/Z00ty-Bridging-Header.h";
 			};
 			name = Release;
 		};
