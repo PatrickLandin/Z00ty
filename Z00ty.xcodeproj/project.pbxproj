@@ -22,6 +22,7 @@
 		EC3760BA1A9D1C71001324DC /* Z00tyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760B91A9D1C71001324DC /* Z00tyTests.m */; };
 		EC3760C91A9D229D001324DC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760C81A9D229D001324DC /* CameraViewController.m */; };
 		EC3760CC1A9D22A8001324DC /* ImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760CB1A9D22A8001324DC /* ImageService.m */; };
+		EC3760CF1A9D2E34001324DC /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760CE1A9D2E34001324DC /* NetworkService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		EC3760C81A9D229D001324DC /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		EC3760CA1A9D22A8001324DC /* ImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageService.h; sourceTree = "<group>"; };
 		EC3760CB1A9D22A8001324DC /* ImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageService.m; sourceTree = "<group>"; };
+		EC3760CD1A9D2E34001324DC /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		EC3760CE1A9D2E34001324DC /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				328243731A9D21F4002B40C9 /* ImageViewController.m */,
 				EC3760C71A9D229D001324DC /* CameraViewController.h */,
 				EC3760C81A9D229D001324DC /* CameraViewController.m */,
+				EC3760CD1A9D2E34001324DC /* NetworkService.h */,
+				EC3760CE1A9D2E34001324DC /* NetworkService.m */,
 				EC3760CA1A9D22A8001324DC /* ImageService.h */,
 				EC3760CB1A9D22A8001324DC /* ImageService.m */,
 				EC3760A41A9D1C71001324DC /* ViewController.h */,
@@ -261,6 +266,7 @@
 				EC3760A01A9D1C71001324DC /* AppDelegate.m in Sources */,
 				EC3760C91A9D229D001324DC /* CameraViewController.m in Sources */,
 				EC3760A61A9D1C71001324DC /* ViewController.m in Sources */,
+				EC3760CF1A9D2E34001324DC /* NetworkService.m in Sources */,
 				EC37609D1A9D1C71001324DC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
