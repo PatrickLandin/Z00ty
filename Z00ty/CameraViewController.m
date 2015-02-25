@@ -7,7 +7,9 @@
 //
 
 #import "CameraViewController.h"
+#import "ImageService.h"
 #import <UIKit/UIKit.h>
+#import "NetworkService.h"
 
 @interface CameraViewController () <UITabBarControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -41,14 +43,18 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
   
   UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-  // Send this image somewhere
   
+  [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(300, 300)];
+  NSData *imageData = UIImagePNGRepresentation(chosenImage);
+  [[NetworkService sharedService] handleCallBackURL:imageData];
+  
+  // Send this image somewhere
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
   
   [picker dismissViewControllerAnimated:YES completion:NULL];
-  [self.tabBarController setSelectedIndex:0];
+  [self.tabBarController setSelectedIndex:1];
   
 }
 
