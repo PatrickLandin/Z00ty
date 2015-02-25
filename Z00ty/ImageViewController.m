@@ -7,6 +7,7 @@
 //
 
 #import "ImageViewController.h"
+#import "MainViewServiceController.h"
 
 
 @interface ImageViewController ()
@@ -43,6 +44,9 @@
   [self.imageView layer].masksToBounds = true;
   [self.imageView layer].cornerRadius = 30;
   
+  [[MainViewServiceController sharedService] postPhoneID:^(NSURL *url, NSString *error) {
+    NSLog(@"all good");
+  }];
   
   CAGradientLayer *bgLayer = [ImageViewController brownGradient];
   bgLayer.frame = self.view.bounds;
