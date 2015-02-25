@@ -13,7 +13,6 @@
 		C0D390D61A9D2468000075B6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390D51A9D2468000075B6 /* TableViewController.swift */; };
 		C0D390DA1A9D24A2000075B6 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390D91A9D24A2000075B6 /* StatsTableViewCell.swift */; };
 		C0D390DD1A9D41B6000075B6 /* photos.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D390DB1A9D41B6000075B6 /* photos.json */; };
-		C0D390DE1A9D41B6000075B6 /* votes.json in Resources */ = {isa = PBXBuildFile; fileRef = C0D390DC1A9D41B6000075B6 /* votes.json */; };
 		C0D390E01A9D48C3000075B6 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390DF1A9D48C3000075B6 /* Photos.swift */; };
 		C0D390E21A9D5879000075B6 /* Votes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390E11A9D5879000075B6 /* Votes.swift */; };
 		EC37609D1A9D1C71001324DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37609C1A9D1C71001324DC /* main.m */; };
@@ -26,6 +25,7 @@
 		EC3760C91A9D229D001324DC /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760C81A9D229D001324DC /* CameraViewController.m */; };
 		EC3760CC1A9D22A8001324DC /* ImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760CB1A9D22A8001324DC /* ImageService.m */; };
 		EC3760CF1A9D2E34001324DC /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3760CE1A9D2E34001324DC /* NetworkService.m */; };
+		EC3760D31A9D5F8D001324DC /* votes.json in Resources */ = {isa = PBXBuildFile; fileRef = EC3760D21A9D5F8D001324DC /* votes.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,6 @@
 		C0D390D51A9D2468000075B6 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C0D390D91A9D24A2000075B6 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		C0D390DB1A9D41B6000075B6 /* photos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = photos.json; sourceTree = "<group>"; };
-		C0D390DC1A9D41B6000075B6 /* votes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = votes.json; sourceTree = "<group>"; };
 		C0D390DF1A9D48C3000075B6 /* Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		C0D390E11A9D5879000075B6 /* Votes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Votes.swift; sourceTree = "<group>"; };
 		EC3760971A9D1C71001324DC /* Z00ty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Z00ty.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +68,7 @@
 		EC3760CB1A9D22A8001324DC /* ImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageService.m; sourceTree = "<group>"; };
 		EC3760CD1A9D2E34001324DC /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
 		EC3760CE1A9D2E34001324DC /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
+		EC3760D21A9D5F8D001324DC /* votes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = votes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 				C0D390E11A9D5879000075B6 /* Votes.swift */,
 				C0D390D91A9D24A2000075B6 /* StatsTableViewCell.swift */,
 				C0D390DB1A9D41B6000075B6 /* photos.json */,
-				C0D390DC1A9D41B6000075B6 /* votes.json */,
+				EC3760D21A9D5F8D001324DC /* votes.json */,
 				EC3760AA1A9D1C71001324DC /* Images.xcassets */,
 				328243751A9D2239002B40C9 /* awesomeTest.png */,
 				EC3760AC1A9D1C71001324DC /* LaunchScreen.xib */,
@@ -250,6 +250,7 @@
 				EC3760AE1A9D1C71001324DC /* LaunchScreen.xib in Resources */,
 				EC3760AB1A9D1C71001324DC /* Images.xcassets in Resources */,
 				328243761A9D2239002B40C9 /* awesomeTest.png in Resources */,
+				EC3760D31A9D5F8D001324DC /* votes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
