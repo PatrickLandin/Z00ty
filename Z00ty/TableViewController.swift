@@ -55,6 +55,24 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         seperateMyPhotos(allPhotos)
         
         sortByVote()
+        
+        var url = NSURL(string: "http://zooty.herokuapp.com/api/v1/home/bo98y-234-234-234")
+        
+        var request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        
+        var session = NSURLSession.sharedSession()
+        
+        var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+
+            println(response)
+            
+            var tokenDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String: AnyObject]
+
+            println(tokenDictionary!)
+        })
+        
+        dataTask.resume()
     }
     
     
@@ -223,16 +241,32 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as StatsTableViewCell
         
         cell.rankLabel.text = "#\(indexPath.row + 1)"
-        
-        var imageURL = NSURL(string: tableViewData[indexPath.row].photoUrl)
-        var data = NSData(contentsOfURL: imageURL!)
-        
-        cell.itemImageView.image = UIImage(data: data!)
-        cell.itemImageView?.contentMode = UIViewContentMode.ScaleAspectFill
-        cell.itemImageView?.clipsToBounds = true
-        
         cell.totalVotesLabel.text = "\(tableViewData[indexPath.row].up - tableViewData[indexPath.row].down)"
         
+        var imageQue = NSOperationQueue()
+        imageQue.addOperationWithBlock { () -> Void in
+            
+            var imageURL = NSURL(string: self.tableViewData[indexPath.row].photoUrl)
+            var data = NSData(contentsOfURL: imageURL!)
+            var image = UIImage(data: data!)
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+
+                cell.itemImageView?.contentMode = UIViewContentMode.ScaleAspectFill
+                cell.itemImageView?.clipsToBounds = true
+                
+                if self.tableViewData[indexPath.row].image == nil {
+                    
+                    self.tableViewData[indexPath.row].image = image
+                    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                    
+                } else {
+                    cell.itemImageView.image = self.tableViewData[indexPath.row].image
+                }
+                
+
+            })
+        }
         
         return cell
     }
