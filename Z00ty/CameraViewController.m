@@ -19,9 +19,9 @@
 
 -(void)viewWillAppear:(BOOL)animated {
   
- [[ImageService sharedService] requestAccessToken:^(NSString *token) {
-   NSLog(@"Token method has done a thing");
- }];
+// [[ImageService sharedService] requestAccessToken:^(NSString *token) {
+//   NSLog(@"Token method has done a thing");
+// }];
   
   
   if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -51,7 +51,6 @@
   
   [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(300, 300)];
   NSData *imageData = UIImagePNGRepresentation(chosenImage);
-  [[NetworkService sharedService] handleCallBackURL:imageData];
   
   // Send this image somewhere
 }
