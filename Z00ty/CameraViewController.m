@@ -45,9 +45,7 @@
   UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
   
   [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(300, 300)];
-  [[ImageService sharedService] convertImageToData:chosenImage];
-  NSData *imageData = chosenImage;
-  
+  NSData *imageData = UIImagePNGRepresentation(chosenImage);
   [[NetworkService sharedService] handleCallBackURL:imageData];
   
   // Send this image somewhere
