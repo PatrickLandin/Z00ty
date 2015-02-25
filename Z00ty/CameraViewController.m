@@ -54,7 +54,7 @@
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
   
   [picker dismissViewControllerAnimated:YES completion:NULL];
-  [self.tabBarController setSelectedIndex:0];
+  [self.tabBarController setSelectedIndex:1];
   
 }
 
