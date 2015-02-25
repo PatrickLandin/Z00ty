@@ -47,8 +47,8 @@
   CAGradientLayer *bgLayer = [ImageViewController brownGradient];
   bgLayer.frame = self.view.bounds;
   [self.view.layer insertSublayer:bgLayer atIndex:0];
-    // Do any additional setup after loading the view.
 }
+
 - (IBAction)yesButton:(id)sender {
   __weak ImageViewController *weakSelf = self;
   [UIView animateWithDuration:0.5 animations:^{
