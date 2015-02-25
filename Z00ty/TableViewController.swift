@@ -56,23 +56,23 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         sortByVote()
         
-        var url = NSURL(string: "http://zooty.herokuapp.com/api/v1/home/bo98y-234-234-234")
-        
-        var request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
-        
-        var session = NSURLSession.sharedSession()
-        
-        var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
-
-            println(response)
-            
-            var tokenDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String: AnyObject]
-
-            println(tokenDictionary!)
-        })
-        
-        dataTask.resume()
+//        var url = NSURL(string: "http://zooty.herokuapp.com/api/v1/home/bo98y-234-234-234")
+//        
+//        var request = NSMutableURLRequest(URL: url!)
+//        request.HTTPMethod = "POST"
+//        
+//        var session = NSURLSession.sharedSession()
+//        
+//        var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+//
+//            //println(response)
+//            
+//            var tokenDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String: AnyObject]
+//
+//            //println(tokenDictionary!)
+//        })
+//        
+//        dataTask.resume()
     }
     
     
