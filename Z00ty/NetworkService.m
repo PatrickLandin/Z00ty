@@ -7,6 +7,7 @@
 //
 
 #import "NetworkService.h"
+#import <UIKit/UIKit.h>
 
 @implementation NetworkService
 
@@ -19,40 +20,35 @@
   return mySharedService;
 }
 
--(void) requestAccessToken {
-  NSString *urlString = @"http://zooty.herokuapp.com/api/v1/home?phoneID=";
-  urlString = [urlString stringByAppendingString: @""];
+//-(void) requestAccessToken:(void (^) (NSString *token))completionHandler {
+//  NSString *urlString = @"http://zooty.herokuapp.com/api/v1/home?phoneID=";
+//  
+//  NSString *myDevice = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+//  urlString = [urlString stringByAppendingString: myDevice];
+//}
 
-}
-
--(void) handleCallBackURL:(NSData *)image {
+-(void) postImage:(NSData *)image {
   
-  NSString *post = @"http://zooty.herokuapp.com/api/v1/upload";
-  NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-  NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+  NSString *post = @"http://zooty.herokuapp.com/api/v1/upload?token=";
+  post = [post stringByAppendingString:@"token"];
+  NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[image length]];
   NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-  [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http:"]]];
+  [request setURL:[NSURL URLWithString:post]];
   [request setHTTPMethod:@"POST"];
   [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-  [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
-  [request setHTTPBody:postData];
+  [request setValue:@"image/png" forHTTPHeaderField:@"Current-Type"];
+  [request setHTTPBody:image];
 
   NSURLSession *session = [NSURLSession sharedSession];
   NSURLSessionTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     if (error) {
-      NSLog(@"Error");
-    } else {
+      NSLog(@"Errory times");
+      
+      } else {
+      
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
     NSInteger statusCode = httpResponse.statusCode;
-    switch (statusCode) {
-      case 200 ... 299: {
-        NSLog(@"200");
-        break;
-      }
-      default:
-        NSLog(@"%ld",(long)statusCode);
-        break;
-      }
+      NSLog(@"%ld", (long)statusCode);
     }
   }];
   [dataTask resume];

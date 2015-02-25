@@ -19,6 +19,11 @@
 
 -(void)viewWillAppear:(BOOL)animated {
   
+ [[ImageService sharedService] requestAccessToken:^(NSString *token) {
+   NSLog(@"Token method has done a thing");
+ }];
+  
+  
   if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
