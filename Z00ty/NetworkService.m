@@ -20,13 +20,14 @@
 }
 
 -(void) requestAccessToken {
-  NSURL *url = [[NSBundle mainBundle] pathForResource:@"votes" ofType:@".json"];
-  
+  NSString *urlString = @"http://zooty.herokuapp.com/api/v1/home?phoneID=";
+  urlString = [urlString stringByAppendingString: @""];
+
 }
 
 -(void) handleCallBackURL:(NSData *)image {
   
-  NSString *post = @"";
+  NSString *post = @"http://zooty.herokuapp.com/api/v1/upload";
   NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
   NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
   NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
