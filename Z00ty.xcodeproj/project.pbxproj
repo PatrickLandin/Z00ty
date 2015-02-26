@@ -14,7 +14,6 @@
 		C0D390D61A9D2468000075B6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390D51A9D2468000075B6 /* TableViewController.swift */; };
 		C0D390DA1A9D24A2000075B6 /* StatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390D91A9D24A2000075B6 /* StatsTableViewCell.swift */; };
 		C0D390E01A9D48C3000075B6 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390DF1A9D48C3000075B6 /* Photos.swift */; };
-		C0D390E21A9D5879000075B6 /* Votes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D390E11A9D5879000075B6 /* Votes.swift */; };
 		EC37609D1A9D1C71001324DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37609C1A9D1C71001324DC /* main.m */; };
 		EC3760A01A9D1C71001324DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC37609F1A9D1C71001324DC /* AppDelegate.m */; };
 		EC3760A31A9D1C71001324DC /* Z00ty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC3760A11A9D1C71001324DC /* Z00ty.xcdatamodeld */; };

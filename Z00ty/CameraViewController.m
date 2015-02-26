@@ -10,6 +10,7 @@
 #import "ImageService.h"
 #import <UIKit/UIKit.h>
 #import "NetworkService.h"
+#import "MainViewServiceController.h"
 
 @interface CameraViewController () <UITabBarControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -33,7 +34,7 @@
     [self presentViewController:picker animated:YES completion: NULL];
     
   } else {
-    NSLog(@"No camera in da simulator");
+    NSLog(@"No camera");
   }
 }
 
@@ -48,18 +49,20 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
   
   UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+  UIImage *smallImage = [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(100, 100)];
+  NSData *imageData = UIImagePNGRepresentation(smallImage);
+  NSString *imageString = [[NSString alloc] initWithData:imageData encoding:NSUTF8StringEncoding];
   
-  [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(300, 300)];
-  NSData *imageData = UIImagePNGRepresentation(chosenImage);
+  [[MainViewServiceController sharedService] postStringForImage:imageString];
+  [picker dismissViewControllerAnimated:YES completion:NULL];
+  [self.tabBarController setSelectedIndex:0];
   
-  // Send this image somewhere
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
   
   [picker dismissViewControllerAnimated:YES completion:NULL];
-  [self.tabBarController setSelectedIndex:1];
-  
+  [self.tabBarController setSelectedIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
