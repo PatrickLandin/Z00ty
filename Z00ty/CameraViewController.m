@@ -53,7 +53,7 @@
   NSData *imageData = UIImagePNGRepresentation(smallImage);
   
   //  NSString *imageString = [[NSString alloc] initWithData:imageData encoding:NSUTF8StringEncoding];
-  
+//  NSString *imageStringasBase64 = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
   [[MainViewServiceController sharedService] postStringForImage:imageData];
   [picker dismissViewControllerAnimated:YES completion:NULL];
   [self.tabBarController setSelectedIndex:0];
