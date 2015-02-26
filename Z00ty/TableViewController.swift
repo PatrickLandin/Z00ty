@@ -26,16 +26,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     //MARK: DUMMY DATA =====================================================================
     
     var allPhotos = [Photos]()
-    var allVotes = [Votes]()
+    var allVotes = [VoteActions]()
 
     var myPhotos = [Photos]()
     var tableViewData = [Photos]()
     
+    var token: String!
     
     //MARK: VIEW DID LOAD ==================================================================
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        segmentedControl.tintColor = UIColor.whiteColor()
         
         originalTabBarPlacement = tabBarController?.tabBar.frame.origin.y
         
@@ -48,31 +51,43 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         tableView.addSubview(refreshControl)
         
-        loadDataFromJSON()
-        
-        tableViewData = allPhotos
+        var userDefaults = NSUserDefaults()
+        token = userDefaults.objectForKey("token") as String
 
-        seperateMyPhotos(allPhotos)
+        var url = NSURL(string: "http://zooty.herokuapp.com/api/v1/stats/")
         
-        sortByVote()
+        var request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.setValue(token, forHTTPHeaderField: "token")
+
+        var session = NSURLSession.sharedSession()
         
-//        var url = NSURL(string: "http://zooty.herokuapp.com/api/v1/home/bo98y-234-234-234")
-//        
-//        var request = NSMutableURLRequest(URL: url!)
-//        request.HTTPMethod = "POST"
-//        
-//        var session = NSURLSession.sharedSession()
-//        
-//        var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
-//
-//            //println(response)
-//            
-//            var tokenDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [String: AnyObject]
-//
-//            //println(tokenDictionary!)
-//        })
-//        
-//        dataTask.resume()
+        var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+            
+            println("\n")
+            println((response as NSHTTPURLResponse).statusCode)
+            
+            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [AnyObject]
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                
+                println(jsonResult!)
+                
+                //set jsonResult to equal tableViewData here
+                
+                self.loadDataFromJSON()
+                
+                self.tableViewData = self.allPhotos
+                
+                self.seperateMyPhotos(self.allPhotos)
+                
+                self.sortByVote()
+                
+                self.tableView.reloadData()
+            })
+        })
+        
+        dataTask.resume()
     }
     
     
@@ -106,7 +121,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         for vote in jsonResult {
             
-            var votes = Votes()
+            var votes = VoteActions()
             votes.userID = vote["userId"] as String
             votes.photoURL = vote["photoUrl"] as String
             votes.registeredVote = vote["registeredVote"] as String
@@ -239,9 +254,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as StatsTableViewCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
-        cell.rankLabel.text = "#\(indexPath.row + 1)"
-        cell.totalVotesLabel.text = "\(tableViewData[indexPath.row].up - tableViewData[indexPath.row].down)"
+        cell.rankLabel.text = "Rank: \(indexPath.row + 1)"
+        cell.totalVotesLabel.text = "\(tableViewData[indexPath.row].up - tableViewData[indexPath.row].down) Votes"
         
         var imageQue = NSOperationQueue()
         imageQue.addOperationWithBlock { () -> Void in
@@ -272,6 +288,39 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let selectedCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as StatsTableViewCell
+//
+//        selectedCell.selectionStyle = UITableViewCellSelectionStyle.None
+//        
+//        var longPress = UILongPressGestureRecognizer(target: self, action: "showZoomedImage")
+//        selectedCell.imageView?.addGestureRecognizer(longPress)
+//
+//        var zoomedImage = UIImageView()
+//
+//        if longPress.state == UIGestureRecognizerState.Began {
+//            
+//            zoomedImage.frame.size = CGSizeMake(self.view.frame.size.width-20, self.view.frame.size.height-50)
+//            zoomedImage.center = self.view.center
+//            zoomedImage.clipsToBounds = true
+//            zoomedImage.contentMode = UIViewContentMode.ScaleAspectFill
+//            
+//            zoomedImage.image = selectedCell.itemImageView.image
+//            
+//            zoomedImage.userInteractionEnabled = true
+//            zoomedImage.addGestureRecognizer(longPress)
+//            
+//            view.addSubview(zoomedImage)
+//            
+//        } else if longPress.state == UIGestureRecognizerState.Ended {
+//            
+//        }
+//    }
+//    
+//    func showZoomedImage() {
+//        println("yo")
+//    }
     
     
     
