@@ -51,9 +51,10 @@
   UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
   UIImage *smallImage = [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(100, 100)];
   NSData *imageData = UIImagePNGRepresentation(smallImage);
-  NSString *imageString = [[NSString alloc] initWithData:imageData encoding:NSUTF8StringEncoding];
   
-  [[MainViewServiceController sharedService] postStringForImage:imageString];
+  //  NSString *imageString = [[NSString alloc] initWithData:imageData encoding:NSUTF8StringEncoding];
+  
+  [[MainViewServiceController sharedService] postStringForImage:imageData];
   [picker dismissViewControllerAnimated:YES completion:NULL];
   [self.tabBarController setSelectedIndex:0];
   

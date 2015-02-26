@@ -63,11 +63,6 @@ return mySharedService;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
       
-//      if (tokenResponse) {
-//        completionHandler(tokenResponse,nil);
-//      } else {
-//        completionHandler(nil,@"Search sucked");
-//      }
     });
   }];
   [dataTask resume];
@@ -78,20 +73,36 @@ return mySharedService;
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   NSString *token = [userDefaults stringForKey:@"token"];
   
+//  NSError *error;
+//  NSDictionary *jsonImage = [NSJSONSerialization JSONObjectWithData:image options:0 error:&error];
+  
   NSString *post = @"http://zooty.herokuapp.com/api/v1/upload/";
-//  post = [post stringByAppendingString:token];
-  NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[image length]];
-  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//  NSData *imageString = [image dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-  [request setURL:[NSURL URLWithString:post]];
-  [request setHTTPMethod:@"POST"];
-  [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-  [request setValue:@"x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
-//  [request set]; What do you do here!!!???
-  [request setValue:token forHTTPHeaderField:@"token"];
+  NSURL *serverURL = [[NSURL alloc] initWithString:post];
+  NSString* bodyString = [NSString stringWithFormat:@"{\"photoFile\":\"%@\"}", image];
+  NSData* bodyData = [bodyString dataUsingEncoding:(NSUTF8StringEncoding)];
+  
+  NSUInteger length  = bodyData.length;
+  NSLog(@"the data is of length: %lu", length);
+  
+  NSMutableURLRequest* postRequest = [[NSMutableURLRequest alloc] initWithURL:serverURL];
+  postRequest.HTTPMethod = @"POST";
+  NSString* lengthString = [NSString stringWithFormat:@"%lu", length];
+  [postRequest setValue:lengthString forHTTPHeaderField:@"Content-Length"];
+  [postRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+  postRequest.HTTPBody = bodyData;
+  [postRequest setValue:token forHTTPHeaderField:@"token"];
+
+//  NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[image length]];
+//  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+//  [request setURL:[NSURL URLWithString:post]];
+//  [request setHTTPMethod:@"POST"];
+//  [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+//  [request setValue:@"application/json" forHTTPHeaderField:@"Current-Type"];
+//  [request setHTTPBody:image];
+//  [request setValue:token forHTTPHeaderField:@"token"];
   
   NSURLSession *session = [NSURLSession sharedSession];
-  NSURLSessionTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+  NSURLSessionTask *dataTask = [session dataTaskWithRequest:postRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     
     if (error) {
       NSLog(@"Errory times");
@@ -105,5 +116,7 @@ return mySharedService;
   }];
   [dataTask resume];
 }
-
+  
 @end
+
+
