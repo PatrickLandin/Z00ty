@@ -73,7 +73,7 @@ return mySharedService;
   [dataTask resume];
 }
 
--(void) postStringForImage:(NSString *)image {
+-(void) postStringForImage:(NSData *)image {
   
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   NSString *token = [userDefaults stringForKey:@"token"];
@@ -82,11 +82,12 @@ return mySharedService;
 //  post = [post stringByAppendingString:token];
   NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[image length]];
   NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+//  NSData *imageString = [image dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
   [request setURL:[NSURL URLWithString:post]];
   [request setHTTPMethod:@"POST"];
   [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
   [request setValue:@"x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
-  [request setHTTPBody:image];
+//  [request set]; What do you do here!!!???
   [request setValue:token forHTTPHeaderField:@"token"];
   
   NSURLSession *session = [NSURLSession sharedSession];

@@ -14,6 +14,6 @@
 
 +(id)sharedService;
 
--(void) postStringForImage:(NSData *)image;
+-(void) postStringForImage:(NSString *)image;
 
 @end
