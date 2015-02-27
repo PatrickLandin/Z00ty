@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 pLandin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Photos {
     
@@ -15,6 +15,7 @@ struct Photos {
     var up: Int
     var down: Int
     var total: Int?
+    var image: UIImage?
     
     init() {
         
