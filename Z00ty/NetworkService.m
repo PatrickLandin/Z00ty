@@ -7,6 +7,7 @@
 //
 
 #import "NetworkService.h"
+#import <UIKit/UIKit.h>
 
 @implementation NetworkService
 
