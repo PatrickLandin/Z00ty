@@ -11,6 +11,9 @@
 @interface MainViewServiceController : NSObject
 
 -(void)postPhoneID:(void (^) (NSURL *url, NSString *error))completionHandler;
+
 +(id)sharedService;
+
+-(void) postStringForImage:(NSData *)image;
 
 @end
