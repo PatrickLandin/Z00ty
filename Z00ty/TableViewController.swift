@@ -72,8 +72,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
             
             println("\n")
-            println((response as NSHTTPURLResponse).statusCode)
-            
+//            println((response as NSHTTPURLResponse).statusCode)
+          
             var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [AnyObject]
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
