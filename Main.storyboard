@@ -20,7 +20,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="315" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hMm-lL-N0X">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="315" id="3Vl-jv-gJp" customClass="StatsTableViewCell" customModule="Z00ty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -96,17 +96,12 @@
                                 <rect key="frame" x="16" y="28" width="568" height="29"/>
                                 <segments>
                                     <segment title="Top Items"/>
-                                    <segment title="My Likes"/>
                                     <segment title="My Photos"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlAction:" destination="6U7-cd-Oju" eventType="valueChanged" id="cXE-G1-t5E"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4lJ-lg-H2C">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.17254902420000001" green="0.73333334920000004" blue="0.28627452250000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -121,7 +116,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="4R0-SX-jRo"/>
                     <connections>
-                        <outlet property="fuckingImageView" destination="4lJ-lg-H2C" id="sGv-dp-o0y"/>
                         <outlet property="segmentedControl" destination="oSF-zC-HZG" id="ZdF-QO-UgB"/>
                         <outlet property="tableView" destination="hMm-lL-N0X" id="0CV-S5-4Ck"/>
                     </connections>
