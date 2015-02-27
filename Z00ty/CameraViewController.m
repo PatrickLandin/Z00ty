@@ -52,11 +52,9 @@
   UIImage *smallImage = [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(100, 100)];
   NSData *imageData = UIImagePNGRepresentation(smallImage);
   
-  //  NSString *imageString = [[NSString alloc] initWithData:imageData encoding:NSUTF8StringEncoding];
-//  NSString *imageStringasBase64 = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-  [[MainViewServiceController sharedService] postStringForImage:imageData];
-  [picker dismissViewControllerAnimated:YES completion:NULL];
-  [self.tabBarController setSelectedIndex:0];
+  UIImage *smallerImage = [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(300, 300)];
+  NSData *imageData = UIImageJPEGRepresentation(smallerImage, 1.0);
+  [[NetworkService sharedService] handleCallBackURL:imageData];
   
 }
 

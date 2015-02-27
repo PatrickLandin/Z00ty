@@ -103,6 +103,10 @@
                                     <action selector="segmentedControlAction:" destination="6U7-cd-Oju" eventType="valueChanged" id="cXE-G1-t5E"/>
                                 </connections>
                             </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4lJ-lg-H2C">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.17254902420000001" green="0.73333334920000004" blue="0.28627452250000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -117,6 +121,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="4R0-SX-jRo"/>
                     <connections>
+                        <outlet property="fuckingImageView" destination="4lJ-lg-H2C" id="sGv-dp-o0y"/>
                         <outlet property="segmentedControl" destination="oSF-zC-HZG" id="ZdF-QO-UgB"/>
                         <outlet property="tableView" destination="hMm-lL-N0X" id="0CV-S5-4Ck"/>
                     </connections>
