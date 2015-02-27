@@ -35,9 +35,7 @@ return mySharedService;
   
   NSURLSession *session = [NSURLSession sharedSession];
   NSURLSessionTask *dataTask = [session dataTaskWithRequest:postRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-    
-    //NSLog(@"%@",response);
-    
+        
     NSError *responseError;
     
     NSDictionary *tokenResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&responseError];
@@ -46,6 +44,7 @@ return mySharedService;
     NSArray *components = [[tokenResponse description] componentsSeparatedByString:@"= \""];
     NSString *token = components.lastObject;
     NSArray *otherComponents = [[token description] componentsSeparatedByString:@"\""];
+    
     NSString *finalToken = otherComponents.firstObject;
     NSLog(@"this is a token %@?", tokenResponse);
     
@@ -72,9 +71,6 @@ return mySharedService;
   
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   NSString *token = [userDefaults stringForKey:@"token"];
-  
-//  NSError *error;
-//  NSDictionary *jsonImage = [NSJSONSerialization JSONObjectWithData:image options:0 error:&error];
   
   NSString *post = @"http://zooty.herokuapp.com/api/v1/upload";
   NSURL *serverURL = [[NSURL alloc] initWithString:post];
@@ -111,14 +107,4 @@ return mySharedService;
 }
   
 @end
-
-
-//  NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[image length]];
-//  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//  [request setURL:[NSURL URLWithString:post]];
-//  [request setHTTPMethod:@"POST"];
-//  [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//  [request setValue:@"application/json" forHTTPHeaderField:@"Current-Type"];
-//  [request setHTTPBody:image];
-//  [request setValue:token forHTTPHeaderField:@"token"];
 
