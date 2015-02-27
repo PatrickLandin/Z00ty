@@ -14,7 +14,4 @@
 
 -(void) requestAccessToken:(void (^) (NSString *token))completionHandler;
 
--(void) handleCallBackURL:(NSData *)image;
-
-
 @end

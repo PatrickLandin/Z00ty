@@ -53,8 +53,23 @@
   [self.view.layer insertSublayer:bgLayer atIndex:0];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+  [super viewWillAppear:animated];
+  [[MainViewServiceController sharedService] fetchPhotoForHome:^(NSURL *url, NSString *error) {
+    NSData *photoData = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:photoData];
+    self.imageView.image = image;
+  }];
+}
+
 - (IBAction)yesButton:(id)sender {
   __weak ImageViewController *weakSelf = self;
+  [[MainViewServiceController sharedService] fetchPhotoForHome:^(NSURL *url, NSString *error) {
+    NSData *photoData = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:photoData];
+    self.imageView.image = image;
+    
+  }];
   [UIView animateWithDuration:0.5 animations:^{
     weakSelf.imageView.center = CGPointMake(weakSelf.view.frame.size.width, -weakSelf.view.frame.size.height);
   }];
@@ -62,6 +77,11 @@
 
 - (IBAction)noButton:(id)sender {
   __weak ImageViewController *weakSelf = self;
+  [[MainViewServiceController sharedService] fetchPhotoForHome:^(NSURL *url, NSString *error) {
+    NSData *photoData = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:photoData];
+    self.imageView.image = image;
+  }];
   [UIView animateWithDuration:0.5 animations:^{
     weakSelf.imageView.center = CGPointMake(-weakSelf.view.frame.size.width, -weakSelf.view.frame.size.height);
   }];

@@ -15,5 +15,6 @@
 +(id)sharedService;
 
 -(void) postStringForImage:(NSData *)image;
+-(void)fetchPhotoForHome:(void (^) (NSURL *url, NSString* error))completionHandler;
 
 @end
