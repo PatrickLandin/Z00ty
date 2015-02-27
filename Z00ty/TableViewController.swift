@@ -23,6 +23,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var token: String!
 
     
+    @IBOutlet var fuckingImageView: UIImageView!
     
     //pull dummy data from json
     //organize by all users / all of my upVotes / and photos I've uploaded
@@ -78,7 +79,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
-                println("jsonResult: \(jsonResult!)")
+                //println("jsonResult: \(jsonResult!)")
                 
                 for row in jsonResult! {
                     
@@ -89,12 +90,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                     photo.total = photo.up - photo.down
                     
                     photo.phoneId = row["phoneId"] as String
-                    photo.photoUrl = row["photoUrl"] as String
+                    //println(row["photoUrl"])
 
+                    var bob = row["photoUrl"] as String
+                    //println(bob)
+                    
+                    //photo.photoUrl = row["photoUrl"] as String
+                    
                     self.allPhotos.append(photo)
                 }
                 
-                println("allPhotos: \(self.allPhotos)")
+                //println("allPhotos: \(self.allPhotos)")
 
                 //comment this out when jsonResults is ready to go
                 self.loadDataFromJSON()
@@ -113,6 +119,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         //loadVoteData()
     }
+    
     
     
     //MARK: FUNCTIONS GALORE ===============================================================
