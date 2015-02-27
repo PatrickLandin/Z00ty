@@ -18,6 +18,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var refreshControl = UIRefreshControl()
     
+    var uniqueIdentifier: String!
+    
+    var token: String!
+
+    
+    
     //pull dummy data from json
     //organize by all users / all of my upVotes / and photos I've uploaded
     //then sort each array by most total votes (up - down)
@@ -31,13 +37,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var myPhotos = [Photos]()
     var tableViewData = [Photos]()
     
-    var token: String!
     
     //MARK: VIEW DID LOAD ==================================================================
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        uniqueIdentifier = UIDevice.currentDevice().identifierForVendor.UUIDString
+
         segmentedControl.tintColor = UIColor.whiteColor()
         
         originalTabBarPlacement = tabBarController?.tabBar.frame.origin.y
@@ -71,10 +78,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
-                println(jsonResult!)
+                println("jsonResult: \(jsonResult!)")
                 
-                //set jsonResult to equal tableViewData here
+                for row in jsonResult! {
+                    
+                    var photo = Photos()
+                    
+                    photo.up = row["up"] as Int
+                    photo.down = row["down"] as Int
+                    photo.total = photo.up - photo.down
+                    
+                    photo.phoneId = row["phoneId"] as String
+                    photo.photoUrl = row["photoUrl"] as String
+
+                    self.allPhotos.append(photo)
+                }
                 
+                println("allPhotos: \(self.allPhotos)")
+
+                //comment this out when jsonResults is ready to go
                 self.loadDataFromJSON()
                 
                 self.tableViewData = self.allPhotos
@@ -88,6 +110,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         })
         
         dataTask.resume()
+        
+        //loadVoteData()
     }
     
     
@@ -113,28 +137,51 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
-    func loadVoteDataFromJSON() {
+//    func loadVoteDataFromJSON() {
+//        
+//        let path = NSBundle.mainBundle().pathForResource("votes", ofType: "json")
+//        let jsonData = NSData(contentsOfFile: path!, options: nil, error: nil)
+//        var jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: nil) as [AnyObject]
+//        
+//        for vote in jsonResult {
+//            
+//            var votes = VoteActions()
+//            votes.userID = vote["userId"] as String
+//            votes.photoURL = vote["photoUrl"] as String
+//            votes.registeredVote = vote["registeredVote"] as String
+//            
+//            allVotes.append(votes)
+//        }
+//        
+//    }
+    
+    func loadVoteData() {
         
-        let path = NSBundle.mainBundle().pathForResource("votes", ofType: "json")
-        let jsonData = NSData(contentsOfFile: path!, options: nil, error: nil)
-        var jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: nil) as [AnyObject]
+        var userDefaults = NSUserDefaults()
+        token = userDefaults.objectForKey("token") as String
         
-        for vote in jsonResult {
+        var url = NSURL(string: "http://zooty.herokuapp.com/api/v1/vote/")
+        
+        var request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.setValue(token, forHTTPHeaderField: "token")
+        
+        var session = NSURLSession.sharedSession()
+        
+        var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+    
+            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [AnyObject]
             
-            var votes = VoteActions()
-            votes.userID = vote["userId"] as String
-            votes.photoURL = vote["photoUrl"] as String
-            votes.registeredVote = vote["registeredVote"] as String
-            
-            allVotes.append(votes)
-        }
+            println("vote jsonResult: \(jsonResult!)")
+        })
         
+        dataTask.resume()
     }
     
     
     func seperateMyPhotos(allPhotos: [Photos]) {
         for photo in allPhotos {
-            if photo.phoneId == "0" {
+            if photo.phoneId == "\(uniqueIdentifier)" {
                 myPhotos.append(photo)
             }
         }
@@ -270,7 +317,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
                 cell.itemImageView?.contentMode = UIViewContentMode.ScaleAspectFill
                 cell.itemImageView?.clipsToBounds = true
-                
+
+                //cell.itemImageView.image = self.tableViewData[indexPath.row].image
+
                 if self.tableViewData[indexPath.row].image == nil {
                     
                     self.tableViewData[indexPath.row].image = image
