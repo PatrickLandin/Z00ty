@@ -16,9 +16,13 @@
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
   mySharedService = [[MainViewServiceController alloc] init];
+    
+    
 });
 return mySharedService;
 }
+
+NSString *photoId = @"";
 
 -(void)postPhoneID:(void (^) (NSURL *url, NSString *error))completionHandler {
   NSString *uniqueIdentifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
@@ -61,6 +65,53 @@ return mySharedService;
       NSLog(@"bob %@", [userDefaults objectForKey:@"token"]);
     }
     dispatch_async(dispatch_get_main_queue(), ^{
+      
+    });
+  }];
+  [dataTask resume];
+}
+
+-(void)fetchPhotoForHome:(void (^) (NSURL *url, NSString* error))completionHandler {
+  NSUserDefaults *userDefaults = [[NSUserDefaults alloc] init];
+  NSString *token = [userDefaults objectForKey:@"token"];
+  NSString *url = @"http://zooty.herokuapp.com/api/v1/stats";
+  NSURL *tokenURL = [[NSURL alloc] initWithString:url];
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:tokenURL];
+  request.HTTPMethod = @"GET";
+  [request setValue:token forHTTPHeaderField:@"token"];
+  
+  NSURLSession *session = [NSURLSession sharedSession];
+  NSURLSessionTask * dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSLog(@"%@",response);
+    NSError *errorResponse;
+    
+    NSArray *images = [NSJSONSerialization JSONObjectWithData:data options:0 error:&errorResponse];
+    
+    NSLog(@"images %@", images);
+    
+    
+    //single out image in images
+    //display that image in imageView
+    //store the displayed image _uid in a global variable
+    //create bodyString
+    //set _uid global variable in body string
+    //set photoURL in body string
+    //set up as current + new
+    //set down as current + new
+    
+    //[{_uid:adsfdsaf, photoUrl:www.bob.com, up:0, down,0}, {_uid.....}]
+    
+    if (error) {
+      completionHandler(nil, @"$hit didnt work...");
+    } else {
+      NSHTTPURLResponse *httpRespone = (NSHTTPURLResponse *)response;
+      NSInteger statusCode = httpRespone.statusCode;
+      NSLog(@"status code for image %ld", (long)statusCode);
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+      photoId = images[0][@"photoUrl"];
+      NSURL *myUrl = [NSURL URLWithString:photoId];
+      completionHandler( myUrl,nil);
       
     });
   }];
