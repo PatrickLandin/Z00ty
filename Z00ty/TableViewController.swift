@@ -78,23 +78,23 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
-                println("jsonResult: \(jsonResult!)")
-                
-                for row in jsonResult! {
-                    
-                    var photo = Photos()
-                    
-                    photo.up = row["up"] as Int
-                    photo.down = row["down"] as Int
-                    photo.total = photo.up - photo.down
-                    
-                    photo.phoneId = row["phoneId"] as String
-                    photo.photoUrl = row["photoUrl"] as String
-
-                    self.allPhotos.append(photo)
-                }
-                
-                println("allPhotos: \(self.allPhotos)")
+//                println("jsonResult: \(jsonResult!)")
+//                
+//                for row in jsonResult! {
+//                    
+//                    var photo = Photos()
+//                    
+//                    photo.up = row["up"] as Int
+//                    photo.down = row["down"] as Int
+//                    photo.total = photo.up - photo.down
+//                    
+//                    photo.phoneId = row["phoneId"] as String
+//                    photo.photoUrl = row["photoUrl"] as String
+//
+//                    self.allPhotos.append(photo)
+//                }
+//                
+//                println("allPhotos: \(self.allPhotos)")
 
                 //comment this out when jsonResults is ready to go
                 self.loadDataFromJSON()
