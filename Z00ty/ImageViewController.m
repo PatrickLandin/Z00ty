@@ -48,6 +48,14 @@
     NSLog(@"all good");
   }];
   
+  [[MainViewServiceController sharedService] fetchPhotoForHome:^(NSURL *url, NSString *error) {
+    NSLog(@"asll");
+  }];
+  
+  [[MainViewServiceController sharedService] postVotes:^(NSURL *url, NSString *error) {
+    NSLog(@"votes");
+  }];
+  
   CAGradientLayer *bgLayer = [ImageViewController brownGradient];
   bgLayer.frame = self.view.bounds;
   [self.view.layer insertSublayer:bgLayer atIndex:0];

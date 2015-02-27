@@ -12,5 +12,6 @@
 
 -(void)postPhoneID:(void (^) (NSURL *url, NSString *error))completionHandler;
 +(id)sharedService;
-
+-(void)fetchPhotoForHome:(void (^) (NSURL *url, NSString* error))completionHandler;
+-(void)postVotes:(void (^) (NSURL *url, NSString *error))completionHandler;
 @end
