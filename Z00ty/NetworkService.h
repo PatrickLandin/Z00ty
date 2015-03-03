@@ -12,8 +12,6 @@
 
 +(id)sharedService;
 
--(void) handleCallBackURL:(NSData *)image;
-
--(void) requestAccessToken;
+-(void) requestAccessToken:(void (^) (NSString *token))completionHandler;
 
 @end

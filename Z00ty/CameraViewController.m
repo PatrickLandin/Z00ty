@@ -49,6 +49,8 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
   
   UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+//  UIImage *smallImage = [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(100, 100)];
+  //NSData *imageData = UIImagePNGRepresentation(smallImage);
   
   UIImage *smallerImage = [[ImageService sharedService] adjustImage:chosenImage toSmallerSize:CGSizeMake(300, 300)];
   NSData *imageData = UIImageJPEGRepresentation(smallerImage, 1.0);
@@ -56,6 +58,7 @@
   
   [picker dismissViewControllerAnimated:YES completion:NULL];
   [self.tabBarController setSelectedIndex:0];
+  
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
