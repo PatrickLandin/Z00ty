@@ -32,9 +32,7 @@
   NSString *post = @"http://zooty.herokuapp.com/api/v1/upload";
   //NSString *stringToData = [[NSString alloc] initWithData:image encoding:NSASCIIStringEncoding];
   NSError *jsonError;
-  
 
-  
   NSData *data = [image base64EncodedDataWithOptions:NSDataBase64Encoding64CharacterLineLength];
  
   NSString *stringToData = [image base64EncodedStringWithOptions:0];

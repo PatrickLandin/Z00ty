@@ -73,53 +73,47 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
             
             println("\n")
-//            println((response as NSHTTPURLResponse).statusCode)
+            println((response as NSHTTPURLResponse).statusCode)
           
             var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [AnyObject]
             
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
-                //println("jsonResult: \(jsonResult!)")
+                println("jsonResult: \(jsonResult!)")
                 
                 for row in jsonResult! {
                     
                     var photo = Photos()
                     
-                    //photo.up = row["up"] as Int
-                  
-                    
+                    photo.up = row["up"] as Int
+                    photo.down = row["down"] as Int
                     photo.phoneId = row["phoneId"] as String
-                    //println(row["photoUrl"])
-
-                    var bob = row["photoUrl"] as String
-                    //println(bob)
-                    
                     photo.photoUrl = row["photoUrl"] as String
                     
                     self.allPhotos.append(photo)
                 }
               
-                //println("allPhotos: \(self.allPhotos)")
-              let imageString = self.allPhotos[0].photoUrl
+//              let imageString = self.allPhotos[0].photoUrl
+//                println(imageString)
+//              
+//                let data = NSData(contentsOfURL: NSURL(string: imageString)!)
+//              //let myData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+//            
+//              
+//          
+//              //let image = UIImage(data: myData!)
+//              self.fuckingImageView.image = UIImage(data: data!)
+//              
+//                //comment this line out when jsonResults is ready to go
+//                self.loadDataFromJSON()
               
-              let myData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-            
-              
-          
-              let image = UIImage(data: myData!)
-              self.fuckingImageView.image = image
-              
-                //comment this out when jsonResults is ready to go
-                //self.loadDataFromJSON()
-              
+                self.tableViewData = self.allPhotos
                 
-//                self.tableViewData = self.allPhotos
-//                
-//                self.seperateMyPhotos(self.allPhotos)
-//                
-//                self.sortByVote()
-//                
-//                self.tableView.reloadData()
+                self.seperateMyPhotos(self.allPhotos)
+                
+                self.sortByVote()
+                
+                self.tableView.reloadData()
             })
         })
         
@@ -132,24 +126,24 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //MARK: FUNCTIONS GALORE ===============================================================
     
-    func loadDataFromJSON() {
-        
-        let path = NSBundle.mainBundle().pathForResource("photos", ofType: "json")
-        let jsonData = NSData(contentsOfFile: path!, options: nil, error: nil)
-        var jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: nil) as [AnyObject]
-        
-        for photo in jsonResult {
-            
-            var photos = Photos()
-            photos.phoneId = photo["phoneId"] as String
-            photos.photoUrl = photo["photoUrl"] as String
-            photos.up = photo["up"] as Int
-            photos.down = photo["down"] as Int
-            photos.total = photos.up - photos.down
-            
-            allPhotos.append(photos)
-        }
-    }
+//    func loadDataFromJSON() {
+//        
+//        let path = NSBundle.mainBundle().pathForResource("photos", ofType: "json")
+//        let jsonData = NSData(contentsOfFile: path!, options: nil, error: nil)
+//        var jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: nil) as [AnyObject]
+//        
+//        for photo in jsonResult {
+//            
+//            var photos = Photos()
+//            photos.phoneId = photo["phoneId"] as String
+//            photos.photoUrl = photo["photoUrl"] as String
+//            photos.up = photo["up"] as Int
+//            photos.down = photo["down"] as Int
+//            photos.total = photos.up - photos.down
+//            
+//            allPhotos.append(photos)
+//        }
+//    }
     
     
 //    func loadVoteDataFromJSON() {
@@ -170,28 +164,28 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 //        
 //    }
     
-    func loadVoteData() {
-        
-        var userDefaults = NSUserDefaults()
-        token = userDefaults.objectForKey("token") as String
-        
-        var url = NSURL(string: "http://zooty.herokuapp.com/api/v1/vote/")
-        
-        var request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "GET"
-        request.setValue(token, forHTTPHeaderField: "token")
-        
-        var session = NSURLSession.sharedSession()
-        
-        var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
-    
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [AnyObject]
-            
-            println("vote jsonResult: \(jsonResult!)")
-        })
-        
-        dataTask.resume()
-    }
+//    func loadVoteData() {
+//        
+//        var userDefaults = NSUserDefaults()
+//        token = userDefaults.objectForKey("token") as String
+//        
+//        var url = NSURL(string: "http://zooty.herokuapp.com/api/v1/vote/")
+//        
+//        var request = NSMutableURLRequest(URL: url!)
+//        request.HTTPMethod = "GET"
+//        request.setValue(token, forHTTPHeaderField: "token")
+//        
+//        var session = NSURLSession.sharedSession()
+//        
+//        var dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
+//    
+//            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [AnyObject]
+//            
+//            println("vote jsonResult: \(jsonResult!)")
+//        })
+//        
+//        dataTask.resume()
+//    }
     
     
     func seperateMyPhotos(allPhotos: [Photos]) {
@@ -289,11 +283,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             tableView.reloadData()
             
         case 1:
-            
-            tableViewData = []
-            tableView.reloadData()
-            
-        case 2:
             tableViewData = myPhotos
             sortByVote()
             tableView.reloadData()
