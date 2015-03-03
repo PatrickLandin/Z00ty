@@ -10,8 +10,10 @@
 
 @interface NetworkService : NSObject
 
-//+(id)sharedService;
++(id)sharedService;
 
-//-(void) requestAccessToken:(void (^) (NSString *token))completionHandler;
+-(void) handleCallBackURL:(NSData *)image;
+
+-(void) requestAccessToken;
 
 @end
